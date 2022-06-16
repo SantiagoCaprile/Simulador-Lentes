@@ -6,27 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <script src="/main.js"></script>
     <title>Simulador</title>
 </head>
 <body>
     <h1>Simulador Lentes Convergentes</h1>
     <form>
         <fieldset>
-            <input type="radio" class="radio-btn" name="lente" id="radio-f" checked>
+            <input type="radio" class="radio-btn" name="lente" id="radio-f" checked >
             <label for="d-focal-f">Distancia focal (cm)</label>
-            <input type="number" name="d-focal-f" id="d-focal-f">
+            <input type="number" name="d-focal-f" id="d-focal-f" class="deshabilitado">
         </fieldset>
         <fieldset>
             <input type="radio" class="radio-btn" name="lente" id="radio-p">
             <label for="d-objeto-p">Distancia objeto (cm)</label>
-            <input type="number" name="d-objeto-p" id="d-objeto-f">
+            <input type="number" name="d-objeto-p" id="d-objeto-p">
         </fieldset>
         <fieldset>
             <input type="radio" class="radio-btn" name="lente" id="radio-q">
             <label for="d-imagen-q">Distancia imagen (cm)</label>
-            <input type="number" name="d-imagen-q" id="d-imagen-f">
-        </fieldset>
-        <button class="button">Calcular</button>
+            <input type="number" name="d-imagen-q" id="d-imagen-q">
+        </fieldset>  
+        <button class="button" id="calcular-btn">Calcular</button>
     </form>
+    
 </body>
 </html>

@@ -1,3 +1,6 @@
+html{
+    zoom: 200%;
+}
 body{
     display: flex;
     flex-direction: column;
@@ -5,7 +8,6 @@ body{
     justify-content: center;
     background-color: rgb(2, 2, 51);
 }
-
 h1{
     font-size: 2.5rem;
     font-weight: bold;
@@ -83,4 +85,7 @@ input:focus{
     text-shadow: 0 0 10px #000;
     transform: scale(1.1);
 }
-
+.deshabilitado{
+    pointer-events: none;
+    opacity: 0.3;
+}
