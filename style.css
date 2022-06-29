@@ -89,3 +89,19 @@ input:focus{
     pointer-events: none;
     opacity: 0.3;
 }
+.error{
+    color: red;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+    text-align: center;
+}
+#grupo{
+    margin-top: 30px;
+    font-size: 12px;
+}

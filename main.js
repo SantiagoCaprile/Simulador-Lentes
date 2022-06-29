@@ -1,18 +1,64 @@
 window.onload = function() {
     //1/p + 1/q = 1/f
-    //calcular aumento
     const radioF = document.getElementById('radio-f');
     const radioP = document.getElementById('radio-p');
     const radioQ = document.getElementById('radio-q');
     const inputF = document.getElementById('d-focal-f');
     const inputP = document.getElementById('d-objeto-p');
     const inputQ = document.getElementById('d-imagen-q');
+    const mensaje = document.getElementById('mensaje');
     const btnCalcular = document.getElementById('calcular-btn');
 
 
     calcularAumento = () => {
         let M = -inputQ.value/inputP.value;
-        console.log(M.toFixed(2));
+        return M.toFixed(2);
+    }
+    obtenerTipoImagen = () => {
+        tipo = "Imagen: ";
+        if(inputF.value == inputP.value) {
+            return tipo = "Objeto sobre foco";
+        }
+        // -Si la distancia q es positiva -> imagen real
+        // -Si la distancia q es negativa -> imagen virtual
+        if(inputQ.value > 0){
+            tipo+= "Real - ";
+        } else {
+            tipo+= "Virtual - ";
+        }
+        // -Si la distancia f > p Derecha
+        // -Si la distancia f < p Invertida
+        if(inputF.value > inputP.value){
+            tipo+= "Derecha.";
+        } else if (inputF.value < inputP.value){
+            tipo+= "Invertida.";
+        }
+        return tipo;
+    }
+    esLenteConvergente = () => {
+        if(inputF.value > 0){
+            return true;
+        }
+        return false;
+    }
+    escribirMensaje = () => {
+        vacios = 0;
+        inputs = [inputF, inputP, inputQ];
+        inputs.forEach(input => {
+            if(input.value == ""){
+                vacios++;
+            }
+        });        
+        if (vacios > 1) {
+            mensaje.innerHTML = "Por favor, verifique los datos";
+            mensaje.classList.add("error");
+        } else if (!esLenteConvergente()){
+            mensaje.innerHTML = "Lente no convergente";
+            mensaje.classList.add("error");
+        } else {
+            mensaje.innerHTML = "Aumento M = " + calcularAumento() + "<br>" + obtenerTipoImagen();
+            mensaje.classList.remove("error");
+        }
     }
     calcularFoco = () => {
         let p = inputP.value;
@@ -62,13 +108,13 @@ window.onload = function() {
     };
     btnCalcular.addEventListener('click', function(e) {
         e.preventDefault();
-        if (radioF.checked) {
+        if (radioF.checked && inputP.value!=="" && inputQ.value!=="") {
             calcularFoco();
-        } else if (radioP.checked) {
+        } else if (radioP.checked && inputF.value!=="" && inputQ.value!=="") {
             calcularDistanciaObjeto();
-        } else if (radioQ.checked) {
+        } else if (radioQ.checked && inputF.value!=="" && inputP.value!=="") {
             calcularDistanciaImagen();
         }
-        calcularAumento();
+        escribirMensaje();
     });
 }
