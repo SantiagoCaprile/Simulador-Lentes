@@ -26,11 +26,12 @@ window.onload = function() {
         } else {
             tipo+= "Virtual - ";
         }
-        // -Si la distancia f > p Derecha
-        // -Si la distancia f < p Invertida
-        if(inputF.value > inputP.value){
+        // si el aumento es positivo -> imagen derecha
+        // si el aumento es negativo -> imagen invertida
+        aumento = calcularAumento();
+        if(aumento > 0){
             tipo+= "Derecha.";
-        } else if (inputF.value < inputP.value){
+        } else if (aumento < 0){
             tipo+= "Invertida.";
         }
         return tipo;
