@@ -19,6 +19,9 @@ window.onload = function() {
         if(inputF.value == inputP.value) {
             return tipo = "Objeto sobre foco";
         }
+        if(inputF.value === inputQ.value) {
+            return tipo = "";
+        }
         // -Si la distancia q es positiva -> imagen real
         // -Si la distancia q es negativa -> imagen virtual
         if(inputQ.value > 0){
