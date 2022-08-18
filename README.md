@@ -8,4 +8,4 @@ Agustin Faucetta
 Tadeo Bruno
 Santiago Caprile
 
-Link deploy: https://flyinsoup.github.io/Simulador-Lentes/
+Link deploy: https://santiagocaprile.github.io/Simulador-Lentes/
